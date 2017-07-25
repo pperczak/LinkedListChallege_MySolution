@@ -10,7 +10,7 @@ public class Album {
     private String name;
     private LinkedList<Song> songs;
 
-    public Album(String name, LinkedList<Song> songs) {
+    public Album(String name) {
         this.name = name;
         this.songs = new LinkedList<Song>();
     }
@@ -24,7 +24,7 @@ public class Album {
     }
 
     public boolean addSongToAlbum(String name, double dur) {
-        if (findSong(name)) {
+        if (findSongInAlbum(name)) {
             System.out.println("Song already on the list");
             return false;
         }
@@ -32,7 +32,21 @@ public class Album {
         return true;
     }
 
-    private boolean findSong(String name) {
+    public boolean addSongToAlbum(Song s) {
+        if (findSongInAlbum(s.getTitle())) {
+            System.out.println("Song already on the list");
+            return false;
+        }
+        songs.add(s);
+        return true;
+    }
+
+
+    private boolean findSongInAlbum(String name) {
+
+        if (songs.isEmpty()) {
+            return false;
+        }
         ListIterator<Song> listiterator = songs.listIterator();
         if (listiterator.next().equals(name)) {
             return true;
