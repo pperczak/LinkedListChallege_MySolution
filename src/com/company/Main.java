@@ -1,7 +1,9 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.ListIterator;
 
 public class Main {
 
@@ -38,7 +40,25 @@ public class Main {
         Album_g1.addSongToAlbum(g4);
         Album_g1.addSongToAlbum(g5);
 
+        System.out.println("czy s1 jest gdzies ?" + checkSongForAlbum("s1"));
+        System.out.println("czy g1 jest gdzies ?" + checkSongForAlbum("g1"));
+        System.out.println("czy g100 jest gdzies ?" + checkSongForAlbum("g100"));
 
+    }
+    public static boolean checkSongForAlbum(String piosenka) {
+        if (albums.isEmpty()) return true;
+        Iterator<Album> albumIterator = albums.iterator();
 
+        while(albumIterator.hasNext()) {
+            LinkedList<Song> s = albumIterator.next().getSongs();
+
+            ListIterator<Song> s_iterator = s.listIterator();
+            while (s_iterator.hasNext()) {
+                if (s_iterator.next().getTitle().equals(piosenka)) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }
