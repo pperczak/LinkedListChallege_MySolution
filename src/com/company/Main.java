@@ -40,9 +40,14 @@ public class Main {
         Album_g1.addSongToAlbum(g4);
         Album_g1.addSongToAlbum(g5);
 
+        albums.add(Album_s1);
+        albums.add(Album_g1);
+
+
         System.out.println("czy s1 jest gdzies ?" + checkSongForAlbum("s1"));
         System.out.println("czy g1 jest gdzies ?" + checkSongForAlbum("g1"));
         System.out.println("czy g100 jest gdzies ?" + checkSongForAlbum("g100"));
+
 
     }
     public static boolean checkSongForAlbum(String piosenka) {
