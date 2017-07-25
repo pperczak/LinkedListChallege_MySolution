@@ -24,19 +24,20 @@ public class Album {
     }
 
     public boolean addSongToAlbum(String name, double dur) {
-        if (findSong(name) <0) {
-
+        if (findSong(name)) {
+            System.out.println("Song already on the list");
+            return false;
         }
+        songs.add(new Song(name, dur));
         return true;
     }
 
-    private int findSong(String name) {
+    private boolean findSong(String name) {
         ListIterator<Song> listiterator = songs.listIterator();
         if (listiterator.next().equals(name)) {
-            System.out.println("Song already on the list");
-            return -1;
-        }else {
-            return listiterator.nextIndex();
+            return true;
+        } else {
+            return false;
         }
     }
 
