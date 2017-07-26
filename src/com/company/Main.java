@@ -25,7 +25,7 @@ public class Main {
         Song g5 = new Song("g5",5.05);
 
         Album Album_s1 = new Album("Album_s1");
-
+        //
         Album_s1.addSongToAlbum(s1);
         Album_s1.addSongToAlbum(s2);
         Album_s1.addSongToAlbum(s3);
