@@ -1,14 +1,12 @@
 package com.company;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.ListIterator;
+import java.util.*;
 
 public class Main {
 
     private static ArrayList<Album> albums = new ArrayList<Album>();
     private static LinkedList<Song> playlist = new LinkedList<Song>();
+    private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
 
@@ -52,9 +50,20 @@ public class Main {
         addSongToPlaylist("s2");
         addSongToPlaylist("g1");
         addSongToPlaylist("s4");
+        addSongToPlaylist("v4");
 
         printLSongList();
 
+        int wybor = scanner.nextInt();
+
+        switch (wybor) {
+
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+
+        }
 
 
 
