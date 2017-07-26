@@ -43,10 +43,11 @@ public class Main {
         albums.add(Album_s1);
         albums.add(Album_g1);
 
-
+        /*
         System.out.println("czy s1 jest gdzies ?" + checkSongForAlbum("s1"));
         System.out.println("czy g1 jest gdzies ?" + checkSongForAlbum("g1"));
         System.out.println("czy g100 jest gdzies ?" + checkSongForAlbum("g100"));
+        */
 
 
     }
