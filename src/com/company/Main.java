@@ -49,8 +49,17 @@ public class Main {
         System.out.println("czy g100 jest gdzies ?" + checkSongForAlbum("g100"));
         */
 
+        addSongToPlaylist("s2");
+        addSongToPlaylist("g1");
+        addSongToPlaylist("s4");
+
+        printLSongList();
+
+
+
 
     }
+    /*
     public static boolean checkSongForAlbum(String piosenka) {
         if (albums.isEmpty()) return true;
         Iterator<Album> albumIterator = albums.iterator();
@@ -66,5 +75,44 @@ public class Main {
             }
         }
         return false;
+    }
+    */
+    public static Song findSongForAlbum(String piosenka) {
+        if (albums.isEmpty()) return null;
+        Iterator<Album> albumIterator = albums.iterator();
+
+        while(albumIterator.hasNext()) {
+            LinkedList<Song> s = albumIterator.next().getSongs();
+
+            ListIterator<Song> s_iterator = s.listIterator();
+            while (s_iterator.hasNext()) {
+                if (s_iterator.next().getTitle().equals(piosenka)) {
+                    return s.get(s_iterator.nextIndex()-1);
+                }
+            }
+        }
+        return null;
+    }
+
+    public static boolean addSongToPlaylist(String piosenka) {
+        if(findSongForAlbum(piosenka)== null) {
+            System.out.println("Brak piosenki w albumach!");
+            return false;
+        } else {
+
+            playlist.add(findSongForAlbum(piosenka));
+        }
+        return true;
+    }
+    public static void printLSongList() {
+
+        ListIterator<Song> listapiosenek = playlist.listIterator();
+        System.out.println("Playlista aktualnie zawiera: ");
+        while (listapiosenek.hasNext()) {
+            Song curr = listapiosenek.next();
+            System.out.println("Indeks: " +listapiosenek.nextIndex()+" Tytuł: "+ curr.getTitle() + " , trwa: "+ curr.getDuration());
+        }
+
+
     }
 }
