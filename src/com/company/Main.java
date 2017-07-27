@@ -127,7 +127,8 @@ public class Main {
                 "2 - skip backwards\n" +
                 "3 - replay current song\n" +
                 "4 - print menu\n" +
-                "5 - remove current song\n");
+                "5 - remove current song\n" +
+                "6 - list songs in playlist");
     }
 
 
@@ -210,8 +211,22 @@ public class Main {
                     printMenu();
                     break;
                 case 5:
-                    listIterator.remove();
+
+                    if (!listIterator.hasPrevious()) {
+                        System.out.println("next indeks "+listIterator.nextIndex()+ " previous indeks "+listIterator.previousIndex());
+                        listIterator.next();
+                        listIterator.remove();
+                    }else if (!listIterator.hasNext()) {
+                        listIterator.remove();
+                        listIterator.previous();
+                    }else {
+                        listIterator.remove();
+                    }
+
                     System.out.println("Current records successfully removed.");
+                    break;
+                case 6:
+                    printLSongList();
                     break;
             }
         }
